@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!-- 字符集 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <!-- 开发模式 -->
+    <constant name="struts.devMode" value="true"></constant>
+    <!-- 主题 -->
+    <constant name="struts.ui.theme" value="simple"></constant>
+    <!-- #  struts.objectFactory = spring	将action的创建交给spring容器
+            struts.objectFactory.spring.autoWire = name spring负责装配Action依赖属性
+                -->
+    <constant name="struts.objectFactory" value="spring"></constant>
+    <!--整合方案1:class属性上仍然配置action的完整类名
+            struts2仍然创建action,由spring负责组装Action中的依赖属性
+            不推荐理由:最好由spring完整管理action的生命周期.spring中功能才应用到Action上.
+
+    <package name="crm" namespace="/" extends="struts-default">
+        <action name="UserAction_*" class="action.UserAction" method="{1}">
+            <result name="success">/success.jsp</result>
+        </action>
+    </package>
+    -->
+
+    <!--z整合方案2:class属性上填写spring中action的对象的BeanName
+        完全有spring管理action生命周期,包括Action的创建
+        注意:需要手动组装依赖属性
+    -->
+    <package name="crm" namespace="/" extends="struts-default" >
+        <!--1注册拦截器-->
+        <interceptors>
+            <interceptor name="privilegeInterceptor" class="interceptor.privilegeInterceptor"></interceptor>
+            <interceptor name="autoInterceptor" class="interceptor.autoLoginInterceptor"></interceptor>
+        <!--配置拦截器栈-->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="privilegeInterceptor">
+                    <param name="excludeMethods">login,regist</param>
+                </interceptor-ref>
+                <interceptor-ref name="autoInterceptor">
+                    <param name="excludeMethods">login</param>
+                </interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!--指定默认拦截器栈-->
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+
+        <!--全局结果集配置-->
+        <global-results>
+            <result name="toLogin" type="redirect">/login.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
+            <exception-mapping result="error1" exception="java.lang.ArithmeticException"></exception-mapping>
+        </global-exception-mappings>
+
+
+        <action name="checkImg_*" class="checkImg" method="{1}">
+        </action>
+
+
+        <action name="EventsAction_*" class="eventsAction" method="{1}">
+            <result name="list">eventsList.jsp</result>
+            <result name="reply">response.jsp</result>
+            <result name="toHome">index.html</result>
+            <result name="toList" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">EventsAction_list</param>
+            </result>
+        </action>
+
+        <action name="AdminAction_*" class="adminAction" method="{1}">
+            <result name="toHome" type="redirect">/index.jsp</result>
+            <result name="toLogin" type="redirect">/login.jsp</result>
+            <result name="toPersonal" type="redirect">/adminData.jsp</result>
+            <result name="error1">/adminpassword.jsp</result>
+            <result name="error">/login.jsp</result>
+        </action>
+
+        <action name="UserAction_*" class="userAction" method="{1}">
+            <result name="toHome" type="redirect">index.jsp</result>
+            <result name="toLogin" type="redirect">login.jsp</result>
+            <result name="error">/login.jsp</result>
+            <result name="list">userList.jsp</result>
+            <result name="lists">userListPhone.jsp</result>
+            <result name="toList" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">UserAction_list</param>
+            </result>
+        </action>
+    </package>
+
+
+
+
+</struts>

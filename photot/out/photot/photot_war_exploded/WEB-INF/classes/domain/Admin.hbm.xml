@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domain" >
+	<class name="Admin" table="admin" >
+		<id name="Admin_id"  >
+			<generator class="native"></generator>
+		</id>
+		<property name="Admin_code"  ></property>
+		<property name="Admin_password"  ></property>
+		<property name="Admin_name"  ></property>
+		<property name="Admin_mobile"  ></property>
+		<property name="Admin_phone"  ></property>
+		<property name="Admin_section"  ></property>
+		<property name="Admin_job"  ></property>
+		<property name="Admin_photo"  ></property>
+		<property name="Admin_email"  ></property>
+		<property name="Admin_weiXin"  ></property>
+	</class>
+</hibernate-mapping>

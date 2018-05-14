@@ -1,0 +1,31 @@
+.body-rule{
+  .header{
+    width: 100%;
+    height:auto;
+    img{
+      width: 100%;
+      height:auto;
+    }
+  }
+  .upload{
+    button{
+      width: 49%;
+    }
+  }
+  .description{
+    .description-title{
+      color: #000000;
+      font-size: 16px;
+      line-height: 30px;
+    }
+    .description-content{
+      width: 100%;
+      height:auto;
+      margin: 10px 0;
+      line-height: 25px;
+      p{
+        margin-bottom: 0;
+      }
+    }
+  }
+}

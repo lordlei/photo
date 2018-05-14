@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domain" >
+	<class name="Photo_events" table="photo_events" >
+		<id name="event_id"  >
+			<generator class="native"></generator>
+		</id>
+		<property name="event_time"  ></property>
+		<property name="event_detail"  ></property>
+		<property name="event_place"  ></property>
+		<property name="event_check"  ></property>
+		<property name="event_image"  ></property>
+		<property name="event_comment"  ></property>
+
+		<many-to-one name="event_category" column="event_category" class="Category"  >
+		</many-to-one>
+
+		<many-to-one name="event_user" column="event_user" class="User"  >
+		</many-to-one>
+	</class>
+</hibernate-mapping>

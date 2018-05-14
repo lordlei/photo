@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="photot_war_exploded archive8">
+    <output-path>$PROJECT_DIR$/out/artifacts/photot_war_exploded_archive8</output-path>
+    <root id="archive" name="photot_war_exploded archive.war">
+      <element id="artifact" artifact-name="photot_war_exploded" />
+    </root>
+  </artifact>
+</component>

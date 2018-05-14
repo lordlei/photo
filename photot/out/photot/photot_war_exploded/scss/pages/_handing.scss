@@ -1,0 +1,41 @@
+.body-handing {
+  padding-top: 60px;
+  padding-bottom: 140px;
+  .detail-img{
+    width: 100%;
+    height:auto;
+    position: relative;
+    .img-show{
+      width: 100%;
+      height:182px;
+      overflow: hidden;
+      li{
+        width: 100%;
+        height:182px;
+        float: left;
+        img{
+          width: 100%;
+          height:100%;
+        }
+      }
+    }
+    .slider-arrow{
+      width: 20px;
+      height: 40px;
+      position: absolute;
+      top:50%;
+      z-index: 999;
+      margin-top: -20px;
+      &.slider-left{
+        left:5px;
+      }
+      &.slider-right{
+        right:5px;
+      }
+      img{
+        width: 100%;
+        height:100%;
+      }
+    }
+  }
+}

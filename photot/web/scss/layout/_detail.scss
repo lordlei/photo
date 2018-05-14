@@ -1,0 +1,35 @@
+.detail{
+  /*ul{
+    padding:0;
+    li{
+      list-style: none;
+    }
+  }*/
+  .detail-img-wrap {
+    background-color: #f9f9f9;
+  }
+  .detail-content{
+    width: 100%;
+    height:auto;
+    .detail-title{
+      width: 100%;
+      margin: 10px 0 0;
+      font-size: 16px;
+      line-height: 25px;
+    }
+    .release-information{
+      color: #aaa;
+      font-size: 12px;
+      overflow: hidden;
+      line-height: 20px;
+      margin-bottom:10px;
+      span:first-child{
+        margin-right: 20px;
+      }
+    }
+    .detail-description{
+      font-size: 14px;
+      line-height: 25px;
+    }
+  }
+}

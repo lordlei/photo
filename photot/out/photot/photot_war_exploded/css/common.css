@@ -1,0 +1,27 @@
+﻿/* common */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: '微软雅黑';
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    padding: 15px 20px;
+    background-color: #f8f8f8;
+}
+#form1{
+    width: 100%;
+    height: 100%;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}

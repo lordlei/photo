@@ -1,0 +1,31 @@
+package action;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import domain.User;
+import service.UserService;
+
+public class UserAction extends ActionSupport implements ModelDriven<User> {
+    private User u=new User();
+    private UserService userService;
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+
+    public String login() throws Exception {
+
+        User user = userService.getUserByCodePassword(u);
+
+        ActionContext.getContext().getSession().put("user",user);
+
+        return "toHome";
+    }
+
+    @Override
+    public User getModel() {
+        return u;
+    }
+}

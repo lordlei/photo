@@ -1,0 +1,85 @@
+.cover-uploadImg{
+  &.cover{
+    .cover-inner{
+      width: 90%;
+      height: 90%;
+      margin-top: 10px;
+    }
+  }
+  .uploadImg{
+    .form-group{
+      #image{
+        width: 80px;
+        height: 75px;
+        color: #d7d7d7;
+        font-size: 30px;
+        background: $color;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        line-height: 75px;
+      }
+      .picFile{
+        width: 80px;
+        height: 75px;
+        position: absolute;
+        left:0;
+        top:26px;
+        opacity: 0;
+      }
+      .attention{
+        position: absolute;
+        bottom: 0;
+        left:90px;
+        color: #b6b6b6;
+      }
+      #uploadimg{
+        li{
+          padding: 0;
+          margin-right: 10px;
+        }
+      }
+      .upload-click{
+        width: 100px;
+        height: 74.77px;
+        float: left;
+        margin-right: 10px;
+        color: #cccccc;
+        font-size: 30px;
+        line-height: 74.77px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .upload-click-next{
+        display: none;
+      }
+    }
+
+
+    /*uploadImg-test*/
+    .clearfix{
+      p{
+        font-size: 12px;
+        line-height: 30px;
+        margin-bottom: 0;
+      }
+    }
+    .img-preview {
+      overflow: hidden;
+      text-align: center;
+    }
+    .img-preview-sm {
+      width: 88px;
+      height: 102px;
+    }
+    .uploadImgShow{
+      margin-top: 10px;
+      overflow: hidden;
+      img{
+        width: 100px;
+        height: auto;
+        float: left;
+        margin-right: 10px;
+      }
+    }
+  }
+}
